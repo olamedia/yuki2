@@ -72,8 +72,11 @@ class coreAutoloader extends autoloader{
                 $this->rebuild($path.$name.'/', false);
             }elseif (is_file($filename)){
                 //if ($name{0} == 'y'){
-                $class = reset(explode('.', $name));
-                $this->add(array($class=>$name), $locationPrefix);
+                $ext = end(explode('.', $name));
+                if ($ext === 'php'){
+                    $class = reset(explode('.', $name));
+                    $this->add(array($class=>$name), $locationPrefix);
+                }
                 //}
             }
         }

@@ -2,6 +2,7 @@ registry
 ========
 
 ```php
+<?php
 $registry = new registry();
 $registry->load(array('name'=>'value'));
 $array = $registry->toArray();
